@@ -20,7 +20,7 @@ try:
         while True:
             if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                 message = event.text.lower()
-                if commands.get[message]:
+                if commands.get[message] and message.startswith(commands['start_with']):
                     vk.messages.send(
                         user_id=event.user_id,
                         message=commands[message]
